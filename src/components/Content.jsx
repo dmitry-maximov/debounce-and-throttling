@@ -1,45 +1,40 @@
-import Container from '@mui/material/Container';
+import React, { useEffect, useState } from 'react';
 import InfoBlock from './InfoBlock';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { TextField } from '@mui/material';
+import { useFetching } from '../hooks/useFetching';
+import UserService from '../API/UserService';
+import Users from './Users';
+import { useUsers } from '../hooks/useSearchedUsers';
+import Container from '@mui/material/Container';
 import { Box } from '@mui/system';
+import CircularProgress from '@mui/material/CircularProgress';
+import FilterUsers from './FilterUsers';
 
 function Content() {
-  const cards = [1, 2, 3, 4, 5, 6];
+  const [users, setUsers] = useState([]);
+  const [filter, setFilter] = useState('');
+  const searchedUsers = useUsers(users, filter);
+
+  const [fetchUsers, isUsersLoading, usersError] = useFetching(async () => {
+    const response = await UserService.getAll();
+    setUsers([...users, ...response.data]);
+  });
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <Container sx={{ py: 5 }} maxWidth="md">
       <InfoBlock />
-      <Box component="form" sx={{ pt: 8 }} noValidate autoComplete="off">
-        <TextField fullWidth label="Lorem ipsum" variant="outlined" />
-      </Box>
-      <Grid sx={{ pt: 3 }} container spacing={4}>
-        {cards.map((card) => (
-          <Grid item key={card} xs={12}>
-            <Card
-              sx={{
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Lorem ipsum
-                </Typography>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      <FilterUsers filter={filter} setFilter={setFilter} />
+
+      {isUsersLoading && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 5 }}>
+          <CircularProgress />
+        </Box>
+      )}
+
+      {!usersError && <Users users={searchedUsers} />}
     </Container>
   );
 }

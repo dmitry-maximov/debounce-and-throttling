@@ -2,8 +2,8 @@ import * as React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ThemeColorContext } from './context';
 import Layout from './components/Layout';
-import './App.css';
 import Content from './components/Content';
+import './App.css';
 
 function App() {
   const [mode, setMode] = React.useState('light');
