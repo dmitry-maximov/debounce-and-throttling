@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 function InfoBlock() {
   return (
@@ -12,23 +13,15 @@ function InfoBlock() {
         justifyContent: 'center',
         bgcolor: 'background.default',
         color: 'text.primary',
-        p: 3,
+        pt: 5,
       }}
     >
-      <Typography
-        component="h2"
-        variant="h3"
-        align="center"
-        color="text.primary"
-        gutterBottom
-      >
-        Lorem ipsum
+      <Typography variant="h1" align="center" color="text.primary" gutterBottom>
+        Search
+        <FiberManualRecordIcon style={{ color: '#1976d2' }} />
       </Typography>
-      <Typography variant="h5" align="center" color="text.secondary" paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+      <Typography variant="h6" align="center" color="text.secondary" paragraph>
+        Searching user information using <strong>Debouncing</strong>
       </Typography>
     </Box>
   );
