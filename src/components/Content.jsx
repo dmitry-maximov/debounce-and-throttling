@@ -8,11 +8,13 @@ import Container from '@mui/material/Container';
 import { Box } from '@mui/system';
 import CircularProgress from '@mui/material/CircularProgress';
 import FilterUsers from './FilterUsers';
+import useDebounce from '../hooks/useDebounce';
 
 function Content() {
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState('');
-  const searchedUsers = useUsers(users, filter);
+  const debouncedFilter = useDebounce(filter, 500);
+  const searchedUsers = useUsers(users, debouncedFilter);
 
   const [fetchUsers, isUsersLoading, usersError] = useFetching(async () => {
     const response = await UserService.getAll();

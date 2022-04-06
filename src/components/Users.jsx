@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import User from './User';
 
 function Users({ users }) {
-  if (!users.length) {
+  if (!users || !users.length) {
     return (
       <Typography mt={5} variant="h5" align="center">
         Пользователи не найдены!
