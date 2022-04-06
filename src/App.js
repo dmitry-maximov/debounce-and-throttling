@@ -1,13 +1,17 @@
-import * as React from 'react';
+import { useMemo, useState, useCallback, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ThemeColorContext } from './context';
 import Layout from './components/Layout';
 import Content from './components/Content';
 import './App.css';
+import useTrottle from './hooks/useThrottling';
 
 function App() {
-  const [mode, setMode] = React.useState('light');
-  const colorMode = React.useMemo(
+  const callback = useCallback(() => console.log('движение мыши'), []);
+  const throttleMouseMove = useTrottle(callback, 1000);
+
+  const [mode, setMode] = useState('light');
+  const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
@@ -16,7 +20,7 @@ function App() {
     []
   );
 
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createTheme({
         palette: {
@@ -26,11 +30,16 @@ function App() {
     [mode]
   );
 
+  useEffect(() => {
+    document.addEventListener('mousemove', throttleMouseMove);
+    return () => document.removeEventListener('mousemove', throttleMouseMove);
+  }, []);
+
   return (
     <ThemeColorContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <Layout theme={theme} handlerTheme={colorMode.toggleColorMode}>
-          <Content></Content>
+          <Content />
         </Layout>
       </ThemeProvider>
     </ThemeColorContext.Provider>
