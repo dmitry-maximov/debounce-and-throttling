@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 
 function FilterUsers({ filter, setFilter }) {
   return (
-    <Box component="form" sx={{ pt: 8 }} noValidate autoComplete="off">
+    <Box component="form" noValidate autoComplete="off">
       <TextField
         fullWidth
         label="search by name"
