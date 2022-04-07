@@ -2,9 +2,9 @@ import { useMemo, useState, useCallback, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ThemeColorContext } from './context';
 import Layout from './components/Layout';
-import Content from './components/Content';
 import './App.css';
 import useTrottle from './hooks/useThrottling';
+import InfoBlock from './components/InfoBlock';
 
 function App() {
   const callback = useCallback(() => console.log('движение мыши'), []);
@@ -39,7 +39,7 @@ function App() {
     <ThemeColorContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <Layout theme={theme} handlerTheme={colorMode.toggleColorMode}>
-          <Content />
+          <InfoBlock />
         </Layout>
       </ThemeProvider>
     </ThemeColorContext.Provider>

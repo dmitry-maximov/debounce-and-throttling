@@ -17,11 +17,11 @@ function InfoBlock() {
       }}
     >
       <Typography variant="h1" align="center" color="text.primary" gutterBottom>
-        Search
+        mouse movement
         <FiberManualRecordIcon style={{ color: '#1976d2' }} />
       </Typography>
       <Typography variant="h6" align="center" color="text.secondary" paragraph>
-        Searching user information
+        Information about movement in the console
       </Typography>
     </Box>
   );

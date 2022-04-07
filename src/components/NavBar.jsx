@@ -12,7 +12,7 @@ function NavBar({ theme, handlerTheme }) {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            Search .
+            mouse movement .
           </Typography>
           <IconButton sx={{ ml: 1 }} onClick={handlerTheme} color="inherit">
             {theme.palette.mode === 'dark' ? (
