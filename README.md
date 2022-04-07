@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Debounce-and-throttling
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Этот проект был написан с помощью [Create React App](https://github.com/facebook/create-react-app).
+
+# About
+
+Что такое Throttling и Debouncing?
+
+Throttling и debouncing — это широко используемые техники для увеличения производительности кода, который выполняется повторно с некоторой периодичностью.
+
+Этот проект направлен на то, чтобы на практике показать, что такоеThrottling и Debouncing.
+Каждая ветка представляет отдельный пример.
+
+Основная ветвь представляет собой обычный поиск среди пользователей по имени, реализованный с помощью управляемого компонента.
+
+https://user-images.githubusercontent.com/33220382/162155807-d0a9c482-4576-41d5-abec-bb5f39c6ea67.mp4
+
+Ветка debouncing представляет тот же поиск среди пользователей по имени, но уже реализованный с помощью хука useDebounce.
+
+https://user-images.githubusercontent.com/33220382/162156576-6124a7a4-3ee9-4ae4-a5f3-10fd62c586e0.mp4
+
+В ветке Throttling представлен пример, демонстрирующий подсчет движений мыши в консоли с использованием хука useThrottling.
+
+https://user-images.githubusercontent.com/33220382/162158105-5a2d39f5-baff-4f9a-b258-d8c030e4ca01.mp4
+
+Подробнее о том что такое Throttling и debouncing и где эти техники применяются можно ознакомиться в [статье](https://medium.com/nuances-of-programming/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-throttling-%D0%B8-debouncing-4f0a839769ef).
 
 ## Available Scripts
 
-In the project directory, you can run:
+В каталоге проекта вы можете запустить:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Запускает приложение в режиме разработки.\
+Откройте [http://localhost:3000](http://localhost:3000) чтобы просмотреть его в браузере.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Страница будет перезагружена после внесения изменений.\
+Вы также можете увидеть любые ошибки lint в консоли.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
